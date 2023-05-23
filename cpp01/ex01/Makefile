@@ -8,7 +8,7 @@ F = main\
 
 S = $(foreach f, $(F), $(f).cpp)
 OBJ = $(S:.cpp=.o)
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -std=c++98
 
 GREEN	= \x1b[32m
 RED		= \x1b[31m
@@ -21,14 +21,14 @@ $(NAME): $(OBJ)
 	@printf ">$(GREEN) compilation completed$(WHITE)"
 
 .cpp.o:
-	@c++ -o $@ $< $(CFLAGS)
+	@c++ -o $@ -c $< $(CFLAGS)
 
 clean:
 	@rm -rf $(OBJ)
-	@printf ">$(RED) all .o deletete$(WHITE)"
+	@printf ">$(RED) all .o deletete$(WHITE)\n"
 
 fclean: clean
 	@rm -rf $(NAME)
-	@printf ">$(RED) $(NAME) deletete$(WHITE)"
+	@printf ">$(RED) $(NAME) deletete$(WHITE)\n"
 
 re: fclean all

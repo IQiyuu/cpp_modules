@@ -5,7 +5,7 @@ F = main\
 	Zombie\
 	newZombie
 
-S = $(foreach f, $(F), "$(f).cpp")
+S = $(foreach f, $(F), $(f).cpp)
 OBJ = $(S:.cpp=.o)
 CFLAGS = -Wall -Werror -Wextra
 
@@ -17,17 +17,17 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	@c++ $(OBJ) $(CFLAGS) -o $(NAME)
-	@printf ">$(GREEN) compilation completed$(WHITE)"
+	@printf ">$(GREEN) compilation completed$(WHITE)\n"
 
 .cpp.o:
-	@c++ -o $@ $< $(CFLAGS)
+	@c++ -o $@ -c $< $(CFLAGS)
 
 clean:
 	@rm -rf $(OBJ)
-	@printf ">$(RED) all .o deletete$(WHITE)"
+	@printf ">$(RED) all .o deletete$(WHITE)\n"
 
 fclean: clean
 	@rm -rf $(NAME)
-	@printf ">$(RED) $(NAME) deletete$(WHITE)"
+	@printf ">$(RED) $(NAME) deletete$(WHITE)\n"
 
 re: fclean all

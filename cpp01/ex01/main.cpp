@@ -1,8 +1,12 @@
+/* -#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*- */
+/* /|\ -_UwU_- /|\                /|\ -_UwU_- /|\ */
+/* /|\ -_UwU_- /|\ By: DIEU       /|\ -_UwU_- /|\ */
+/* /|\ -_UwU_- /|\                /|\ -_UwU_- /|\ */
+/* /|\ -_UwU_- /|\ main.cpp       /|\ -_UwU_- /|\ */
+/* -#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*- */
 
 #include "Zombie.hpp"
-#include "newZombie.cpp"
-#include "randomChump.cpp"
-#include "zombieHorde.cpp"
+#include "Zombie.h"
 
 int main( void ) {
     Zombie *a = zombieHorde(5, "Bobby");
@@ -10,10 +14,11 @@ int main( void ) {
     Zombie *z = newZombie("Bertro");
 
     a->announce();
+	for (int i = 0; i < 5; i++)
+		a[i].announce();
     randomChump("Boris");
     z->announce();
 
-    for (int i = 0; i < 5; i++)
-        delete( a );
+    delete []( a );
     delete( z );
 }

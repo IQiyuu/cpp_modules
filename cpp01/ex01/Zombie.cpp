@@ -1,11 +1,16 @@
+/* -#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*- */
+/* /|\ -_UwU_- /|\                /|\ -_UwU_- /|\ */
+/* /|\ -_UwU_- /|\ By: DIEU       /|\ -_UwU_- /|\ */
+/* /|\ -_UwU_- /|\                /|\ -_UwU_- /|\ */
+/* /|\ -_UwU_- /|\ Zombie.cpp     /|\ -_UwU_- /|\ */
+/* -#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*- */
+
 #include "Zombie.hpp"
 
-Zombie::Zombie( std::string name ): name(name) { 
-    std::cout << "Zombie {" << name << "}" << GREEN << " created" << WHITE << std::endl;
-}
+Zombie::Zombie( void ) { }
 
-Zombie::~Zombie( void ) {
-    std::cout << "Zombie {" << name << "}" << RED << " deleted" << WHITE << std::endl;
+Zombie::Zombie( std::string newname ): name(newname) {
+    std::cout << "Zombie {" << name << "}" << GREEN << " created" << WHITE << std::endl;
 }
 
 Zombie  Zombie::operator=( const Zombie &zombie ) {
@@ -15,4 +20,8 @@ Zombie  Zombie::operator=( const Zombie &zombie ) {
 
 void    Zombie::announce( void ) {
     std::cout << name << ": BraiiiiiiinnnnnnzzzzzZ" << std::endl;
+}
+
+Zombie::~Zombie( void ) {
+    std::cout << "Zombie {" << name << "}" << RED << " deleted" << WHITE << std::endl;
 }

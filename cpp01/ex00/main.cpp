@@ -1,6 +1,11 @@
-#include "Zombie.hpp"
-#include "newZombie.cpp"
-#include "randomChump.cpp"
+/* -#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*- */
+/* /|\ -_UwU_- /|\                /|\ -_UwU_- /|\ */
+/* /|\ -_UwU_- /|\ By: DIEU       /|\ -_UwU_- /|\ */
+/* /|\ -_UwU_- /|\                /|\ -_UwU_- /|\ */
+/* /|\ -_UwU_- /|\ main.cpp       /|\ -_UwU_- /|\ */
+/* -#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*- */
+
+#include "Zombie.h"
 
 int main( void ) {
     Zombie *a = newZombie("Gilbert");
