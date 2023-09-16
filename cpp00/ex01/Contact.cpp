@@ -1,10 +1,3 @@
-/* -#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*- */
-/* /|\ -_UwU_- /|\                /|\ -_UwU_- /|\ */
-/* /|\ -_UwU_- /|\ By: DIEU       /|\ -_UwU_- /|\ */
-/* /|\ -_UwU_- /|\                /|\ -_UwU_- /|\ */
-/* /|\ -_UwU_- /|\ Contact.cpp    /|\ -_UwU_- /|\ */
-/* -#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*- */
-
 #include "Contact.hpp"
 
 Contact::Contact(void) { std::cout << GREEN << "Contact created" << WHITE << std::endl; }

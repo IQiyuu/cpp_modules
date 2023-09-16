@@ -1,10 +1,3 @@
-/* -#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*- */
-/* /|\ -_UwU_- /|\                /|\ -_UwU_- /|\ */
-/* /|\ -_UwU_- /|\ By: DIEU       /|\ -_UwU_- /|\ */
-/* /|\ -_UwU_- /|\                /|\ -_UwU_- /|\ */
-/* /|\ -_UwU_- /|\ HumanB.cpp     /|\ -_UwU_- /|\ */
-/* -#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*- */
-
 #include "HumanB.hpp"
 
 HumanB::HumanB( Weapon &weapon, std::string name ): weapon(&weapon),name(name){

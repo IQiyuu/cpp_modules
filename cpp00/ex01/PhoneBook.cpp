@@ -1,10 +1,3 @@
-/* -#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*- */
-/* /|\ -_UwU_- /|\                /|\ -_UwU_- /|\ */
-/* /|\ -_UwU_- /|\ By: DIEU       /|\ -_UwU_- /|\ */
-/* /|\ -_UwU_- /|\                /|\ -_UwU_- /|\ */
-/* /|\ -_UwU_- /|\ PhoneBook.cpp  /|\ -_UwU_- /|\ */
-/* -#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*- */
-
 #include "PhoneBook.hpp"
 
 PhoneBook::PhoneBook(void){
@@ -28,6 +21,8 @@ PhoneBook::~PhoneBook(){
 void	PhoneBook::search_contact(void)
 {
 	std::cout << "     index | first name |  last name |   nickname | phone num. |     secret" << std::endl;
+	if (index < 1)
+		return ;
 	for (int i = 0; i < 8; i++)
 	{
 		if (index > 8 || (index < 8 && i < index))
@@ -59,34 +54,39 @@ void	PhoneBook::add_contact(void)
 		delete(contacts[index % 8]);
 		std::cout << "The last contact will be destroyed (" << contacts[index % 8]->getFName() << ")." << std::endl;
 	}
-	std::string	fn;
-	while (fn.empty()){
+	std::string	fn = "";
+	while (!std::cin.eof() && fn == ""){
 		std::cout << "\nFirst Name: ";
-		std::cin >> fn;
+		if (std::getline(std::cin, fn) && fn != "")
+			break ;
 	}
 
 	std::string ln;
 	while (ln.empty()){
 		std::cout << "\nLast Name: ";
-		std::cin >> ln;
+		if (std::getline(std::cin, ln) && ln != "")
+			break ;
 	}
 	
 	std::string nn;
 	while (nn.empty()){
 	std::cout << "\nNickname Name: ";
-	std::cin >> nn;
+			if (std::getline(std::cin, nn) && nn != "")
+			break ;
 	}
 
 	std::string pn;
 	while (pn.empty()){
-	std::cout << "\nPhone Name: ";
-	std::cin >> pn;
+		std::cout << "\nPhone Name: ";
+			if (std::getline(std::cin, pn) && pn != "")
+			break ;
 	}
 
 	std::string ds;
 	while (ds.empty()){
 		std::cout << "\nDarkest secret: ";
-		std::cin >> ds;
+		if (std::getline(std::cin, ds) && ds != "")
+			break ;
 	}
 	contacts[index++ % 8] = new Contact(fn, ln, nn, pn, ds);
 }

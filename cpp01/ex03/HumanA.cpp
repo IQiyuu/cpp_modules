@@ -1,10 +1,3 @@
-/* -#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*- */
-/* /|\ -_UwU_- /|\                /|\ -_UwU_- /|\ */
-/* /|\ -_UwU_- /|\ By: DIEU       /|\ -_UwU_- /|\ */
-/* /|\ -_UwU_- /|\                /|\ -_UwU_- /|\ */
-/* /|\ -_UwU_- /|\ HumanA.cpp     /|\ -_UwU_- /|\ */
-/* -#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*- */
-
 #include "HumanA.hpp"
 
 HumanA::HumanA( Weapon &weapon, std::string name ): weapon(weapon),name(name){ std::cout << "HumanA {" << name << "} with {" << weapon.getType() << "}" << GREEN << " created" << WHITE << std::endl; }
