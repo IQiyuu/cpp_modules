@@ -48,21 +48,5 @@ void	Contact::display_contact(void) const
 	else
 		nn += nickname + " | ";
 
-	std::string pn;
-	for (int i = 0; i < (int)(10 - phone_number.length()); i++)
-		pn += ' ';
-	if (pn.empty() && phone_number.length() > 10)
-		pn += phone_number.substr(0,9) += ". | ";
-	else
-		pn += phone_number + " | ";
-	
-	std::string ds;
-	for (int i = 0; i < (int)(10 - darkest_secret.length()); i++)
-		ds += ' ';
-	if (ds.empty() && darkest_secret.length() > 10)
-		ds += darkest_secret.substr(0,9) += ".";
-	else
-		ds += darkest_secret;
-	
-	std::cout << FONTLESS << fn << ln << nn << pn << ds << std::endl;
+	std::cout << FONTLESS << fn << ln << nn << std::endl;
 }

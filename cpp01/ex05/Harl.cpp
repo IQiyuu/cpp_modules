@@ -1,8 +1,8 @@
 #include "Harl.hpp"
 
-Harl::Harl( void ) { std::cout << "Harl created" << std::endl; }
+Harl::Harl( void ) { std::cout << "Harl \x1b[32mcreated\x1b[0m" << std::endl; }
 
-Harl::~Harl( void ) { std::cout << "Harl destructed" << std::endl; }
+Harl::~Harl( void ) { std::cout << "Harl \x1b[31mdestructed\x1b[0m" << std::endl; }
 
 Harl    Harl::operator=( const  Harl& Harl ) { (void)Harl; return (*this); }
 

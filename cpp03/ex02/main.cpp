@@ -1,16 +1,17 @@
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int main() {
     ClapTrap cp2("Robert");
-    ScavTrap sc("Mimi");
+    FragTrap fp("Popi");
 
-    std::cout << sc << std::endl;
+    std::cout << fp << std::endl;
     std::cout << cp2 << std::endl;
-    sc.attack(cp2.getName());
-    cp2.takeDamage(sc.getDmg());
-    std::cout << sc << std::endl;
+    fp.attack(cp2.getName());
+    cp2.takeDamage(fp.getDmg());
+    std::cout << fp << std::endl;
     std::cout << cp2 << std::endl;
-    sc.beRepaired(10);
-    std::cout << sc << std::endl;
-    return 1;
+    fp.beRepaired(10);
+    std::cout << fp << std::endl;
+    fp.highFivesGuys();
+    return 0;
 }

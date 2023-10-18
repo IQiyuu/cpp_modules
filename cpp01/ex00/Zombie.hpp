@@ -2,8 +2,9 @@
 # define DIONYSOS
 
 # include <iostream>
-# define GREEN "\x1b[0;32m"
-# define RED "\x1b[0;s31m"
+# define GREEN "\x1b[32m"
+# define RED "\x1b[31m"
+# define WHITE "\x1b[0m"
 
 class Zombie
 {

@@ -6,7 +6,7 @@
 class Fixed{
 	private:
 		int	entier;
-		static const int jsp;
+		static const int fract;
 
 	public:
 		Fixed( void );

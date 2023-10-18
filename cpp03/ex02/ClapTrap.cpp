@@ -1,13 +1,27 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap( std::string name ): hp(10), ep(10), dmg(10), name(name) { std::cout << "ClapTrap constructed" << std::endl; }
+ClapTrap::ClapTrap( void ) { std::cout << "ClapTrap \x1b[32mconstructed\x1b[0m" << std::endl; }
+
+ClapTrap::ClapTrap( std::string name ): hp(10), ep(10), dmg(10), name(name) { std::cout << "ClapTrap \x1b[32mconstructed\x1b[0m" << std::endl; }
 
 ClapTrap::ClapTrap( const ClapTrap &n ) { 
-	std::cout << "ClapTrap copy constructed" << std::endl;
+	std::cout << "ClapTrap copy \x1b[32mconstructed\x1b[0m" << std::endl;
 	*this = n;
 }
 
-ClapTrap::~ClapTrap( void ) { std::cout << "ClapTrap destructed" << std::endl; }
+ClapTrap::~ClapTrap( void ) { std::cout << "ClapTrap \x1b[31mdestructed\x1b[0m" << std::endl; }
+
+ClapTrap &ClapTrap::operator=( const ClapTrap &n ) { 
+	std::cout << "assignation" << std::endl;
+	if (this != &n)
+    {
+		this->name = n.getName();
+        this->ep = n.getEp();
+        this->hp = n.getHp();
+        this->dmg = n.getDmg();
+    }
+	return *this;
+}
 
 void    ClapTrap::attack( const std::string &target ) {
     if (ep < 1) {
@@ -33,20 +47,22 @@ void    ClapTrap::takeDamage( unsigned int amount ) {
         std::cout << "ClapTrap " << name << " is already HS " << std::endl;
         return ;
     }
-    hp -= amount;
-    if (hp < 0)
+    if (hp < amount)
         hp = 0;
+    else
+        hp -= amount;
     if (hp == 0)
         std::cout << "ClapTrap " << name << " have taken " << amount << " damages and is now HS." << std::endl;
     else
         std::cout << "ClapTrap " << name << " have taken " << amount << " damages." << std::endl;
 }
 
-unsigned int    ClapTrap::getDmg() { return dmg; }
-std::string     ClapTrap::getName() { return name; }
-unsigned int    ClapTrap::getHp() { return hp; }
+unsigned int    ClapTrap::getDmg() const { return dmg; }
+std::string     ClapTrap::getName() const { return name; }
+unsigned int    ClapTrap::getHp() const { return hp; }
+unsigned int    ClapTrap::getEp() const { return ep; }
 
 std::ostream	&operator<<(std::ostream& os, const ClapTrap &c) {
-	os << c.name << ": \n\t- damage:\t " << c.dmg << "\n\t- hp:\t\t " << c.hp << "\n\t- energy points: " << c.ep << std::endl;
+	os << c.getName() << ": \n\t- damage:\t " << c.getDmg() << "\n\t- hp:\t\t " << c.getHp() << "\n\t- energy points: " << c.getEp() << std::endl;
 	return os;
 }

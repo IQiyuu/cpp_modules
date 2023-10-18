@@ -1,11 +1,11 @@
 #include "Zombie.hpp"
 
 Zombie::Zombie( std::string name ): name(name) { 
-    std::cout << "Zombie {" << name << "}" << GREEN << " created" << std::endl;
+    std::cout << "Zombie " << name << GREEN << " created" << WHITE << std::endl;
 }
 
 Zombie::~Zombie( void ){
-	std::cout << "Zombie {" << name << "}" << RED << " deleted" << std::endl;
+	std::cout << "Zombie " << name << RED << " deleted" << WHITE << std::endl;
 }
 
 Zombie  Zombie::operator=( const Zombie &zombie ) {

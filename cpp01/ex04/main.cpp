@@ -38,7 +38,7 @@ int main(int ac, char *av[])
     std::ifstream in(av[1]);
 
     if (ac != 4)
-        std::cout << "Not enough arguments" << std::endl;
+        std::cout << "Arguments number" << std::endl;
     else if (!in)
         std::cout << "Error during file opening" << std::endl;
     else

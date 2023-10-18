@@ -1,9 +1,9 @@
 #include "Zombie.hpp"
 
-Zombie::Zombie( void ) { }
+Zombie::Zombie( void ) { std::cout << "Zombie" << GREEN << " created" << WHITE << std::endl; }
 
 Zombie::Zombie( std::string newname ): name(newname) {
-    std::cout << "Zombie {" << name << "}" << GREEN << " created" << WHITE << std::endl;
+    std::cout << "Zombie " << name << GREEN << " created" << WHITE << std::endl;
 }
 
 Zombie  Zombie::operator=( const Zombie &zombie ) {
@@ -16,5 +16,9 @@ void    Zombie::announce( void ) {
 }
 
 Zombie::~Zombie( void ) {
-    std::cout << "Zombie {" << name << "}" << RED << " deleted" << WHITE << std::endl;
+    std::cout << "Zombie " << name << RED << " deleted" << WHITE << std::endl;
+}
+
+void    Zombie::setName( std::string name ) {
+    this->name = name;
 }

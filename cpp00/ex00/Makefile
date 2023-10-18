@@ -1,10 +1,3 @@
-# -#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*- #
-# /|\ -_UwU_- /|\                /|\ -_UwU_- /|\ #
-# /|\ -_UwU_- /|\ By: DIEU       /|\ -_UwU_- /|\ #
-# /|\ -_UwU_- /|\                /|\ -_UwU_- /|\ #
-# /|\ -_UwU_- /|\ Makefile       /|\ -_UwU_- /|\ #
-# -#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*-#*- #
-
 NAME = megaphone
 
 F = megaphone.cpp
@@ -14,7 +7,9 @@ OBJ = $(F:.cpp=.o)
 CFLAGS = -Wall -Werror -Wextra
 
 all: $(NAME)
-
+r: re
+	./$(NAME)
+	
 $(NAME): $(OBJ)
 	@c++ -o megaphone $(OBJ) $(CFLAGS)
 	@printf "\x1b[32mcompiled\x1b[0m\n"

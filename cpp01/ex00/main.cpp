@@ -9,6 +9,6 @@ int main( void ) {
     randomChump("Boris");
     z->announce();
 
-    delete(a);
-    delete(z);
+    delete a;
+    delete z;
 }

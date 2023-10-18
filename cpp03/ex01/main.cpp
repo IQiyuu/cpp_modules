@@ -1,43 +1,17 @@
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int main() {
-    ClapTrap cp("Didier");
     ClapTrap cp2("Robert");
+    ScavTrap sc("Mimi");
 
-    std::cout << cp << std::endl;
+    std::cout << sc << std::endl;
     std::cout << cp2 << std::endl;
-    cp.attack(cp2.getName());
-    cp2.takeDamage(cp.getDmg());
-    std::cout << cp << std::endl;
+    sc.attack(cp2.getName());
+    cp2.takeDamage(sc.getDmg());
+    std::cout << sc << std::endl;
     std::cout << cp2 << std::endl;
-    cp2.beRepaired(cp.getDmg());
-    std::cout << cp << std::endl;
-    std::cout << cp2 << std::endl;
-    cp.attack(cp2.getName());
-    cp2.takeDamage(cp.getDmg());
-    cp2.beRepaired(cp.getDmg());
-    cp.attack(cp2.getName());
-    cp2.takeDamage(cp.getDmg());
-    cp2.beRepaired(cp.getDmg());
-    cp.attack(cp2.getName());
-    cp2.takeDamage(cp.getDmg());
-    cp2.beRepaired(cp.getDmg());
-    cp.attack(cp2.getName());
-    cp2.takeDamage(cp.getDmg());
-    cp2.beRepaired(cp.getDmg());
-    cp.attack(cp2.getName());
-    cp2.takeDamage(cp.getDmg());
-    cp2.beRepaired(cp.getDmg());
-    cp.attack(cp2.getName());
-    cp2.takeDamage(cp.getDmg());
-    cp2.beRepaired(cp.getDmg());
-    cp.attack(cp2.getName());
-    cp2.takeDamage(cp.getDmg());
-    cp2.beRepaired(cp.getDmg());
-    cp.attack(cp2.getName());
-    cp2.takeDamage(cp.getDmg());
-    cp.attack(cp2.getName());
-    cp2.takeDamage(cp.getDmg());
-    cp.attack(cp2.getName());
-    return 1;
+    sc.beRepaired(10);
+    std::cout << sc << std::endl;
+    sc.guardGate();
+    return 0;
 }

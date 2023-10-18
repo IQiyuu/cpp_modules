@@ -1,26 +1,28 @@
 #ifndef JOKER
 # define JOKER
-
+    
     #include <iostream>
     class ClapTrap{
-        private:
-            int	hp, ep, dmg;
+        protected:
+            unsigned int	hp, ep, dmg;
             std::string  name;
 
         public:
             ClapTrap( std::string name );
             ClapTrap( const ClapTrap & );
             ~ClapTrap( void );
-
-            friend std::ostream& operator<<(std::ostream& os, const ClapTrap &c);
+            ClapTrap	&operator=( const ClapTrap & );
 
             void    attack(const std::string& target);
             void    takeDamage(unsigned int amount);
             void    beRepaired(unsigned int amount);
 
-            unsigned int getDmg();
-            unsigned int getHp();
-            std::string getName();
+            unsigned int getDmg( void ) const;
+            unsigned int getHp( void ) const;
+            unsigned int getEp( void ) const;
+            std::string getName( void ) const;
     };
+
+    std::ostream& operator<<(std::ostream& os, const ClapTrap &c);
 
 #endif
