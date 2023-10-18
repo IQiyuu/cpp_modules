@@ -14,12 +14,20 @@ MateriaSource::MateriaSource( const MateriaSource &other ) {
 
 MateriaSource::~MateriaSource( void ) {
     std::cout << "Materia source \x1b[31mdeleted\x1b[0m" << std::endl;
+    for (int i = 0; i < 4; i++)
+        if (this->_mat[i] != NULL)
+            delete this->_mat[i];
 }
 
 MateriaSource   &MateriaSource::operator=( const MateriaSource &other ) {
     if (other._mat != this->_mat)
+    {
+        for (int i = 0; i < 4; i++)
+            if (this->_mat[i] != NULL)
+                delete this->_mat[i];
         for (int i = 0; i < 4; i++)
             this->_mat[i] = other._mat[i];
+    }
     return *this;
 }
 

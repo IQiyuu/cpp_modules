@@ -9,7 +9,7 @@ F = main\
 
 S = $(foreach f, $(F), $(f).cpp)
 OBJ = $(S:.cpp=.o)
-CFLAGS = -Wall -Werror -Wextra -std=c++98 -fsanitize=address -g
+CFLAGS = -Wall -Werror -Wextra -std=c++98
 
 GREEN	= \x1b[32m
 RED		= \x1b[31m

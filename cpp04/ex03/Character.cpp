@@ -1,34 +1,42 @@
 #include "Character.hpp"
 
-Character::Character( const Character &other ): _name(other._name) { 
+Character::Character( Character const &other ): _name(other._name) { 
     std::cout << "Character copy \x1b[32mcreated\x1b[0m" << std::endl;
     for (int i = 0; i < 4; i++)
         this->_inventory[i] = other._inventory[i];
 }
 
-Character::Character( const std::string &name ): _name(name) {
+Character::Character( std::string const &name ): _name(name) {
     std::cout << "Character " << _name << " \x1b[32mcreated\x1b[0m" << std::endl;
     for (int i = 0; i < 4; i++)
-        this->_inventory[i] = 0;
+        this->_inventory[i] = NULL;
 }
 
-Character   &Character::operator=( const Character &other ) {
+Character   &Character::operator=( Character const &other ) {
     if (other._inventory != this->_inventory)
+    {
+        for (int i = 0; i < 4; i++)
+            if (this->_inventory[i] != NULL)
+                delete this->_inventory[i];
         for (int i = 0; i < 4; i++)
             this->_inventory[i] = other._inventory[i];
+    }
     return *this;
 }
 
 Character::~Character( void ) {
-    std::cout << "Character" << _name << " \x1b[31mdeleted\x1b[0m" << std::endl;
+    std::cout << "Character " << this->_name << " \x1b[31mdeleted\x1b[0m" << std::endl;
+    for (int i = 0; i < 4; i++)
+        if (this->_inventory[i] != NULL)
+            delete this->_inventory[i];
 }
 
 void    Character::equip( AMateria *mat ) {
     for (int i = 0; i < 4; i++)
     {
-        if (this->_inventory[i] == 0)
+        if (this->_inventory[i] == NULL)
         {
-            std::cout << _name << "equiped " << std::endl;
+            std::cout << this->_name << " take equipement " << mat->getType() << std::endl;
             this->_inventory[i] = mat;
             break ;
         }
@@ -62,5 +70,6 @@ void    Character::use( int idx, ICharacter &target ) {
         std::cout << "this slot is empty" << std::endl;
         return ;
     }
+    std::cout << "* " << this->_name;
     this->_inventory[idx]->use(target);
 }

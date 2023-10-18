@@ -10,14 +10,24 @@ int main()
     src->learnMateria(new Ice());
     src->learnMateria(new Cure());
 
-    std::cout << "0: " << src->getMateria(0)->getType() << std::endl;;
-
     ICharacter* me = new Character("me");
     AMateria* tmp;
+
+    me->unequip(0);
+    me->unequip(1);
+    me->unequip(2);
+    me->unequip(3);
+    me->unequip(4);
 
     tmp = src->createMateria("ice");
     me->equip(tmp);
     tmp = src->createMateria("cure");
+    me->equip(tmp);
+    tmp = src->createMateria("ice");
+    me->equip(tmp);
+    tmp = src->createMateria("cure");
+    me->equip(tmp);
+    tmp = src->createMateria("ice");
     me->equip(tmp);
 
     ICharacter* bob = new Character("bob");
@@ -26,6 +36,8 @@ int main()
 
     delete bob;
     delete me;
+    delete tmp;
     delete src;
+    //system("leaks characters");
     return 0;
 }
