@@ -86,7 +86,8 @@ void	PhoneBook::add_contact(void)
 	std::string ln;
 	while (ln.empty() || (!ln.empty() && have_digits(ln, 0))){
 		std::cout << "\nLast Name: ";
-		if (std::getline(std::cin, ln) && !ln.empty() && !have_digits(ln, 0))
+		std::getline(std::cin, ln);
+		if (std::cin.eof() && !ln.empty() && !have_digits(ln, 0))
 			break ;
 	}
 	

@@ -43,10 +43,22 @@ int main(int ac, char *av[])
         std::cout << "Error during file opening" << std::endl;
     else
     {
-        std::string n = (const char *)av[1];
-        std::ofstream out(n + ".replace");
+        std::string filename = av[1];
+		const std::string	search = av[2];
+		const std::string	replace = av[3];
+		std::string			buffer;
+		std::ifstream		infile;
+		std::ofstream		outfile;
+
+		infile.open(av[1]);
+        infile.open(av[1]);
+        filename = filename + ".replace";
+		if (infile.is_open() == true)
+		{
+			outfile.open(filename.data(), std::ios::out | std::ios::trunc ); //only works on macOS with the +, to make it work on Linux, comment out "filename +"
+        }
         std::string line;
         while(std::getline(in, line))
-            out << ft_replace(line, av[2], av[3]) << std::endl;
+            std::cout << ft_replace(line, av[2], av[3]) << std::endl;
     }
 }
